@@ -1,3 +1,5 @@
+import random
+
 def main():
 	n = get_board_size()
 	round(n)
@@ -25,12 +27,12 @@ def get_board_size():
 
 
 
-def round(n):
+def round(n):	
 	# -1 = пустое, 0 = игрок 0, 1 = игрок 1
 	board = [
 		[-1 for _ in range(n)] for _ in range(n)
 	]
-	to_move = 0
+	to_move = random.randint(0, 1)
 	move_no = 0
 
 	# -1 = draw, 0 = 0 won, 1 = 1 won
