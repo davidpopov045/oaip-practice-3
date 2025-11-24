@@ -1,7 +1,29 @@
 def main():
-	round(3)
+	n = get_board_size()
+	round(n)
 
 PLAYER_CHARACTERS = ['X', 'O']
+TO_WIN = 3
+
+
+def get_board_size():
+	print('Enter the size of the board (3-9): ',
+		end='')
+
+	ok = False
+	while not ok:	
+		try:
+			n = int(input())			
+			if n < 3 or n > 9:				
+				print(f'от 3 до 9!!!')			
+			else:
+				ok = True
+		except ValueError:
+			print('введите целое число')
+	return n
+
+
+
 
 def round(n):
 	# -1 = пустое, 0 = игрок 0, 1 = игрок 1
@@ -51,8 +73,7 @@ def print_board(board):
 
 def is_finished(to_move, board, r, c):
 	n = len(board)
-
-	TO_WIN = 3
+	
 	directions = [
 		(0, 1), (1, 0),
 		(-1, 1), (1, 1)
