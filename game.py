@@ -1,10 +1,14 @@
 import random
+import os
+from datetime import datetime
+
 
 def main():
 	done = False
 	while not done:
 		n = get_board_size()
 		round(n)
+
 
 		print('play once again? (type no to exit)', end=' ')
 		s = input()
@@ -16,6 +20,19 @@ def main():
 
 PLAYER_CHARACTERS = ['X', 'O']
 TO_WIN = 3
+
+def save_stats(n, status, move_no):	
+	os.makedirs("stats", exist_ok=True)
+
+	with open('stats/log.txt', 'a') as f:
+		date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+		if status == -1:
+			res = 'draw'
+		else:
+			res = f'{PLAYER_CHARACTERS[status]} won'
+
+		print(f'{date} {n=} {res} in {move_no} moves.', file=f)
+
 
 
 def get_board_size():
@@ -68,6 +85,7 @@ def round(n):
 		print("draw")
 	else:
 		print(f"{PLAYER_CHARACTERS[status]} won")
+	save_stats(n, status, move_no)
 
 def print_board(board):
 	n = len(board)
