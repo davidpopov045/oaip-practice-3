@@ -36,10 +36,28 @@ def is_finished(board):
 	return False
 
 def get_move(to_move, board):
+	n = len(board)
 	print(f"{PLAYER_CHARACTERS[to_move]}'s turn. "
-		+ "Enter row and column (e.g. 1 2): ")	
-	r, c = map(int, input().split())	
-	return r - 1, c - 1
+		+ "Enter row and column (e.g. 1 2): ")
+
+	ok = False
+	while not ok:	
+		try:
+			r, c = map(int, input().split())
+			r -= 1
+			c -= 1
+			if (r < 0 or r >= n
+				or c < 0 or c >= n):
+				print(f'числа в пределах от 1 до {n}')
+			elif board[r][c] != -1:
+				print('клетка занята!')
+			else:
+				ok = True
+		except ValueError:
+			print('введите два числа через пробел')
+
+
+	return r, c
 
 
 if __name__ == '__main__':
