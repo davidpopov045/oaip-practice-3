@@ -19,7 +19,18 @@ def round(n):
 	pass
 
 def print_board(board):
-	print(board)
+	n = len(board)
+	print("  "
+		+ ' '.join(
+			map(str, 
+				range(1, n + 1))))
+	for i, r in enumerate(board):
+		print(f'{i + 1} '
+			+ ' '.join(map(				
+				lambda x: 
+				'.' if x == -1 
+				else PLAYER_CHARACTERS[x], 
+				r)))
 
 def is_finished(board):
 	return False
