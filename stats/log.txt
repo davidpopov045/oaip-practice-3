@@ -1,0 +1,4 @@
+2025-11-25 00:12:10 n=3 X won in 5 moves.
+2025-11-25 00:12:44 n=3 draw in 9 moves.
+2025-11-25 00:13:05 n=3 O won in 6 moves.
+2025-11-25 00:22:21 n=3 O won in 5 moves.
