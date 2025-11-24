@@ -1,8 +1,18 @@
 import random
 
 def main():
-	n = get_board_size()
-	round(n)
+	done = False
+	while not done:
+		n = get_board_size()
+		round(n)
+
+		print('play once again? (type no to exit)', end=' ')
+		s = input()
+		if s == 'no':
+			done = True
+	print('bye!')
+
+
 
 PLAYER_CHARACTERS = ['X', 'O']
 TO_WIN = 3
